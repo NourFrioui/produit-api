@@ -1,9 +1,6 @@
 package com.springboot_test.stock_management.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -12,10 +9,10 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@Table(name = "produit")
-public class Produit {
+@Table(name = "product")
+public class Product {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private double price;
