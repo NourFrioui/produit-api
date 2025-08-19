@@ -1,0 +1,27 @@
+package com.springboot_test.stock_management.model.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Builder
+@Table(name = "orderItem")
+public class OrderItem {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long orderItem_id;
+	private Integer quantity;
+
+	@ManyToOne
+	@JoinColumn(name = "order_id")
+	private Order order;
+
+	@ManyToOne
+	@JoinColumn(name = "product_id")
+	private Product product;
+}
